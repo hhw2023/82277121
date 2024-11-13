@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: troubleshooting-ingress
+  namespace: "82277121"
+spec:
+  ingressClassName: ingress-internal
+  rules:
+  # 사번으로 변경하세요
+  - host: tr-82277121.ce-aa.kubepia.net
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: troubleshooting
+            port:
+              number: 8080
+        pathType: Prefix
